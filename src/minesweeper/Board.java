@@ -19,6 +19,7 @@ public class Board extends JPanel{
 
     int GridWidth = 15;
     int GridHeight = 15;
+    int count=1;
     Dimension CellSize = new Dimension(25, 25);
 
     static Font mainFont = new Font("ComicSans", Font.BOLD, 17);
@@ -37,11 +38,6 @@ public class Board extends JPanel{
                 newCell.id = cellID;
                 System.out.println("Cell Generated at: (" + String.valueOf(x) + ", " + String.valueOf(y) + ")");
                 cellID++;
-                
-                
-                if (RandomGen.nextInt(100) > IsMinePercentage){
-                    newCell.isMine = true;
-                }
 
                 Grid[x][y] = newCell;//Insert the cell into grid
                 add(newCell);
@@ -49,10 +45,19 @@ public class Board extends JPanel{
         }
     }
 
-    public void Close(){
-
-
-
+    public void RevealMines(){
+        for(int x=0; x<GridWidth; x++){
+            for(int y=0; y<GridHeight; y++){
+                Grid[x][y].Reveal();
+            }
+        }
+    }
+    public void ConcealMines(){
+        for(int x=0; x<GridWidth; x++){
+            for(int y=0; y<GridHeight; y++){
+                Grid[x][y].Conceal();
+            }
+        }
     }
 
     
