@@ -11,7 +11,7 @@ import javax.swing.*;
  *
  * @author a.ambagaspitiya
  */
-public class Board extends JFrame{
+public class Board extends JPanel{
     private static Random RandomGen = new Random();
     
     static int GridWidth = 15;
@@ -56,9 +56,9 @@ public class Board extends JFrame{
     }
 
     
-    public Board(int x, int y){
-        GridWidth = x;
-        GridHeight = y;
+    public Board(int gridWidth, int gridHeight){
+        this.GridWidth = gridWidth;
+        this.GridHeight = gridHeight;
         
 
         setSize(400,500);

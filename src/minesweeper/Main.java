@@ -21,13 +21,25 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-       long time = System.currentTimeMillis();
-       Board MainBoard = new Board(15, 15);
-       MainBoard.setLayout(null);  
-       MainBoard.setVisible(true);  
+       JFrame MainGameFrame = new JFrame("MainGameFrame");
        
-      
-       MainBoard.GenerateCells();
+       MainGameFrame.setSize(400,400);
+       MainGameFrame.setLayout(null);
+       MainGameFrame.setVisible(true);
+       MainGameFrame.setResizable(true);
+
+       Board GameBoard = new Board(15, 15);
+       GameBoard.setBackground(new Color(18, 18, 18));
+       GameBoard.setLayout(null);
+
+
+
+       GameBoard.setVisible(true);
+       GameBoard.GenerateCells();
+
+       MainGameFrame.add(GameBoard);
     }
+
+
     
 }
