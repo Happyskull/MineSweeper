@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package minesweeper;
-import java.awt.*;
+
 import javax.swing.*;
+import java.awt.*;
 /**
  *
  * @author a.ambagaspitiya
