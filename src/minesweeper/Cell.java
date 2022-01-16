@@ -12,8 +12,10 @@ import java.awt.*;
  * @author a.ambagaspitiya
  */
 public class Cell extends JButton {
+    public static int CellWidth = 25;
+    public static int CellHeight = 25;
     public int id;
-    public boolean isMine;
+    public boolean isMine = false;
     public int SidesNumber;
     Point Pos;
     
@@ -24,11 +26,7 @@ public class Cell extends JButton {
     }
     
     public Cell(int posx, int posy){
-        this.Pos = new Point(posx, posy);
-        this.isMine = false;
-        
-        
-        System.out.println("Height: " + this.Pos.y);
-        System.out.println("Width: " + this.Pos.x);
+        this.Pos = new Point(posx*CellHeight, posy*CellHeight);
+        this.setBounds(this.Pos.x,this.Pos.y,this.CellWidth, this.CellHeight);
     }
 }
