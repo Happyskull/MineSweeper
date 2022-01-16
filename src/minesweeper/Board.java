@@ -7,26 +7,24 @@ package minesweeper;
 import java.util.Random;
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+
 /**
  *
  * @author a.ambagaspitiya
  */
 public class Board extends JPanel{
     private static Random RandomGen = new Random();
-    
+    Cell Grid[][];
+
     int GridWidth = 15;
     int GridHeight = 15;
-
     Dimension CellSize = new Dimension(25, 25);
 
     static Font mainFont = new Font("ComicSans", Font.BOLD, 17);
     int IsMinePercentage = 50;
 
 
-
-    Cell Grid[][];
-   
-    
     
     public void GenerateCells(){
         Grid = new Cell[GridWidth][GridHeight];
@@ -62,11 +60,13 @@ public class Board extends JPanel{
         this.GridWidth = gridWidth;
         this.GridHeight = gridHeight;
 
-        this.setBackground(new Color(35, 38, 44));
-        this.setSize(GridWidth*CellSize.width, GridHeight*CellSize.height);
+        setBackground(new Color(35, 38, 44));
+        setSize(GridWidth*CellSize.width, GridHeight*CellSize.height);
+        setLayout(null);
+        setVisible(true);
+        setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED, new Color(30, 30, 30), new Color(18, 18, 18)));
 
-        this.setLocation(500/2,750/2);
 
-        setSize(400,500);
+        //setBounds(0,0,GridWidth*CellSize.width+10, GridHeight*CellSize.height+10);
     }
 }
