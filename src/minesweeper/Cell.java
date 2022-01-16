@@ -6,27 +6,36 @@
 package minesweeper;
 
 import javax.swing.*;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
+import java.util.Random;
+
 /**
  *
  * @author a.ambagaspitiya
  */
 public class Cell extends JButton {
-    public static int CellWidth = 25;
-    public static int CellHeight = 25;
     public int id;
     public boolean isMine = false;
     public int SidesNumber;
-    Point Pos;
-    
+    Point Position;
+    Dimension Size;
+
     
     
     static void RevealAll(){
         
     }
     
-    public Cell(int posx, int posy){
-        this.Pos = new Point(posx*CellHeight, posy*CellHeight);
-        this.setBounds(this.Pos.x,this.Pos.y,this.CellWidth, this.CellHeight);
+    public Cell(Point position, Dimension dimension){
+        Random rand = new Random();
+        this.Position = position;
+        this.Size = dimension;
+        this.setBackground(new Color(rand.nextInt(40, 50), rand.nextInt(40, 50), rand.nextInt(40, 50)));
+        this.setFocusPainted(true);
+        this.setBorder(new MatteBorder(1, 1, 1, 1, new Color(58, 60, 65)));
+
+
+        this.setBounds(this.Position.x, this.Position.y, this.Size.width, this.Size.height);
     }
 }
